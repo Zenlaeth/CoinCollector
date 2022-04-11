@@ -34,7 +34,7 @@
                 style="@style/TitleTextStyle"/>
 
             <TextView
-                android:id="@+id/tvDescription"
+                android:id="@+id/tvBonus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -51,20 +51,27 @@
             android:orientation="horizontal"
             android:layout_marginBottom="10dp">
             <TextView
-                android:id="@+id/tvLocationLabel"
+                android:id="@+id/tvHeadLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Locations : "
+                android:text="Head : "
                 android:textSize="20sp"
                 style="@style/TitleTextStyle"/>
 
             <TextView
-                android:id="@+id/tvLocation"
+                android:id="@+id/tvHead"
                 style="@style/DefaultTextStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/ivHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_baseline_question_mark_24"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -73,19 +80,26 @@
             android:orientation="horizontal"
             android:layout_marginBottom="10dp">
             <TextView
-                android:id="@+id/tvWeaknessLabel"
+                android:id="@+id/tvChestLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weaknesses : "
+                android:text="Chest : "
                 android:textSize="20sp"
                 style="@style/TitleTextStyle"/>
             <TextView
-                android:id="@+id/tvWeakness"
+                android:id="@+id/tvChest"
                 style="@style/DefaultTextStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/ivChest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_baseline_question_mark_24"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -94,19 +108,26 @@
             android:orientation="horizontal"
             android:layout_marginBottom="10dp">
             <TextView
-                android:id="@+id/tvResistanceLabel"
+                android:id="@+id/tvGlovesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Resistances : "
+                android:text="Gloves : "
                 android:textSize="20sp"
                 style="@style/TitleTextStyle"/>
             <TextView
-                android:id="@+id/tvResistance"
+                android:id="@+id/tvGloves"
                 style="@style/DefaultTextStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/ivGloves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_baseline_question_mark_24"></ImageView>
         </LinearLayout>
 
         <LinearLayout
@@ -115,19 +136,52 @@
             android:orientation="horizontal"
             android:layout_marginBottom="10dp">
             <TextView
-                android:id="@+id/tvRewardLabel"
+                android:id="@+id/tvWaistLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rewards : "
+                android:text="Waist : "
                 android:textSize="20sp"
                 style="@style/TitleTextStyle"/>
             <TextView
-                android:id="@+id/tvReward"
+                android:id="@+id/tvWaist"
                 style="@style/DefaultTextStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textStyle="italic" />
+            <ImageView
+                android:id="@+id/ivWaist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_baseline_question_mark_24"></ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/tvLegsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Legs : "
+                android:textSize="20sp"
+                style="@style/TitleTextStyle"/>
+            <TextView
+                android:id="@+id/tvLegs"
+                style="@style/DefaultTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textStyle="italic" />
+            <ImageView
+                android:id="@+id/ivLegs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_baseline_question_mark_24"></ImageView>
         </LinearLayout>
 
         <!-- LOADING -->

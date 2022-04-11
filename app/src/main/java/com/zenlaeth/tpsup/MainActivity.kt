@@ -29,16 +29,28 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MonsterActivity::class.java)
             this.startActivity(intent);
         }
+
+        var armorB = findViewById<Button>(R.id.btnArmor)
+        armorB.setOnClickListener {
+            // Handler code here.
+            val intent = Intent(this, ArmorActivity::class.java)
+            this.startActivity(intent);
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menu.add(0, 28, 0, "Monster")
+        menu.add(0, 28, 0, "Datas")
+        menu.add(0, 29, 0, "Armor")
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.getItemId() == 28) {
             val intent = Intent(this, MonsterActivity::class.java)
+            this.startActivity(intent);
+        }
+        if(item.getItemId() == 29) {
+            val intent = Intent(this, ArmorActivity::class.java)
             this.startActivity(intent);
         }
         return super.onOptionsItemSelected(item)

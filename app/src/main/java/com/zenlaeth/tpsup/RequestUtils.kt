@@ -9,17 +9,28 @@ import okhttp3.Response
 import java.io.InputStreamReader
 import java.util.*
 const val URL_MONSTER = "https://mhw-db.com/monsters/23"
+const val URL_ARMOR = "https://mhw-db.com/armor/sets/20"
 val client = OkHttpClient()
 val gson = Gson()
 class RequestUtils {
     companion object {
-        fun loadMonster (city: String):
+        fun loadMonster ():
         MonsterBean{
             SystemClock.sleep(3000) // Attente 3 secondes
-            val json = sendGet(URL_MONSTER.format(city))
+            val json = sendGet(URL_MONSTER.format())
             return if (Random().nextBoolean())
                 gson.fromJson(json,
                     MonsterBean::class.java)
+            else throw Exception("Je ne dirais pas que c'est un échec, je dirais que ca n'a pas marché")
+        }
+
+        fun loadArmor ():
+                ArmorBean{
+            SystemClock.sleep(3000) // Attente 3 secondes
+            val json = sendGet(URL_ARMOR.format())
+            return if (Random().nextBoolean())
+                gson.fromJson(json,
+                    ArmorBean::class.java)
             else throw Exception("Je ne dirais pas que c'est un échec, je dirais que ca n'a pas marché")
         }
 

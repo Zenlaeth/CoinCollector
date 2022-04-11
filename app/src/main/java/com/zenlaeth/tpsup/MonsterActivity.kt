@@ -58,6 +58,16 @@ class MonsterActivity: AppCompatActivity(), View.OnClickListener {
             else {
                 binding.tvResistance.text = "-"
             }
+            if(it != null && !it.rewards.isNullOrEmpty()) {
+                var listReward = mutableListOf<String>()
+                it.rewards.forEach(){
+                    listReward.add(it.item.name)
+                }
+                binding.tvReward.text = listReward.joinToString(separator="\n")
+            }
+            else {
+                binding.tvReward.text = "-"
+            }
         }
 
         model.errorMessage.observe(this) {

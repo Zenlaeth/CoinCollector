@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:usesCleartextTraffic="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.TPSup">
         <activity
@@ -21,11 +21,19 @@
         </activity>
         <activity
             android:name=".MonsterActivity"
-            android:label="Monster data"
+            android:label="Monster datas"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MonsterActivity" />
+        </activity>
+        <activity
+            android:name=".ArmorActivity"
+            android:label="Full set"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ArmorActivity" />
         </activity>
     </application>
 
