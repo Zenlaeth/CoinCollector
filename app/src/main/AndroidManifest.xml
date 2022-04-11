@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:name=".MonsterActivity"
-            android:label="Monsters"
+            android:label="Monster data"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

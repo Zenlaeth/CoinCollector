@@ -9,7 +9,7 @@ data class MonsterBean(
     var id: Int,
     var locations: List<Location>,
     var name: String,
-    var resistances: List<Any>,
+    var resistances: List<Resistance>,
     var rewards: List<Reward>,
     var species: String,
     var type: String,
@@ -32,6 +32,11 @@ data class Weaknesse(
     var condition: Any,
     var element: String,
     var stars: Int
+)
+
+data class Resistance(
+    var condition: Any,
+    var element: String,
 )
 
 data class Condition(

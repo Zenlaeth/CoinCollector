@@ -8,7 +8,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import java.io.InputStreamReader
 import java.util.*
-const val URL_MONSTER = "https://mhw-db.com/monsters/1"
+const val URL_MONSTER = "https://mhw-db.com/monsters/23"
 val client = OkHttpClient()
 val gson = Gson()
 class RequestUtils {

@@ -1,8 +1,10 @@
 package com.zenlaeth.tpsup
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebViewClient
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
@@ -27,16 +29,6 @@ class MonsterActivity: AppCompatActivity(), View.OnClickListener {
         model.data.observe(this) {
             binding.tvName.text = it?.name ?: "-"
             binding.tvDescription.text = it?.description ?: "-"
-//            binding.tvTemp.text = it?.main?.temp?.toString() ?: "-"
-//            binding.tvWind.text = it?.wind?.speed?.toString() ?: "-"
-//            //la nouvelle donnée s'appelle it
-//            if(it== null) {
-//                binding.tvMinMax.text = "-"
-//            }
-//            else {
-//                binding.tvMinMax.text = "(${it.main.temp_min}°/${it.main.temp_max}°)"
-//            }
-//
             if(it != null && !it.locations.isNullOrEmpty()) {
                 binding.tvLocation.text = it.locations[0].name
             }
@@ -54,6 +46,17 @@ class MonsterActivity: AppCompatActivity(), View.OnClickListener {
             }
             else {
                 binding.tvWeakness.text = "-"
+            }
+
+            if(it != null && !it.resistances.isNullOrEmpty()) {
+                var listResistance = mutableListOf<String>()
+                it.resistances.forEach(){
+                    listResistance.add(it.element)
+                }
+                binding.tvResistance.text = listResistance.joinToString(separator=", ")
+            }
+            else {
+                binding.tvResistance.text = "-"
             }
         }
 
