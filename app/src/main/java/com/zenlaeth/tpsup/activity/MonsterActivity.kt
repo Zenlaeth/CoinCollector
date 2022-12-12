@@ -1,4 +1,4 @@
-package com.zenlaeth.tpsup
+package com.zenlaeth.tpsup.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import com.zenlaeth.tpsup.databinding.ActivityMonsterBinding
+import com.zenlaeth.tpsup.model.MonsterViewModel
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request

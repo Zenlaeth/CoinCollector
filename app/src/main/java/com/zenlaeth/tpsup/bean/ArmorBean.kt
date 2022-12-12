@@ -1,4 +1,4 @@
-package com.zenlaeth.tpsup
+package com.zenlaeth.tpsup.bean
 
 data class ArmorBean(
     var bonus: BonusBean,

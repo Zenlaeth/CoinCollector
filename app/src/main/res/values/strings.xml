@@ -1,5 +1,71 @@
 <resources>
-    <string name="app_name">ANJ\' API</string>
-    <string name="checkLike">J\'aime</string>
-    <string name="checkDislike">Je n\'aime pas</string>
+    <string name="app_name">MHW Hunter Book</string>
+
+    <!-- Sign up bold -->
+    <string name="no_account">Don\'t have an account? <b>Sign up</b></string>
+
+    <!-- Sign in bold -->
+    <string name="account">Have an account? <b>Sign in</b></string>
+
+    <!-- Page d'accueil - barre de recherche -->
+    <string name="bottom_home_item">Home</string>
+    <string name="bottom_explorer_item">Explorer</string>
+    <string name="bottom_cart_item">Cart</string>
+    <string name="bottom_settings_item">Settings</string>
+
+
+    <!-- Page d'accueil -->
+    <string name="home_page_title">Discover</string>
+    <string name="monster_page_list">List of monsters</string>
+
+    <!-- Page de Collection -->
+    <string name="collection_page_title">My collection</string>
+
+    <!-- Page d'ajout d'un article' -->
+    <string name="add_article_page_title">Add article</string>
+    <string name="add_article_upload_button">Import image</string>
+    <string name="add_article_name_input">@string/item_article_name</string>
+    <string name="add_article_description_input">@string/item_article_description</string>
+    <!-- ajouter reste input (liste déroulante catégorie)-->
+
+    <string name="add_article_page_confirm_button">Confirm</string>
+
+    <!-- Fenetre page d'un article (à voir) -->
+    <string name="article_name_item">Name</string>
+    <string name="article_description_label_item">Description</string>
+    <string name="article_description_subtitle_item">Description</string>
+    <string name="article_detail_about_label">About</string>
+    <string name="article_detail_dimension">D</string>
+    <string name="article_detail_weight">Weight</string>
+    <string name="article_price_item">Price</string>
+
+    <!-- Article customize -->
+    <string name="item_article_name">Name</string>
+    <string name="item_article_description">Description</string>
+    <string name="item_article_price">Price</string>
+    <string name="item_article_dimension">Dimension</string>
+    <string name="item_article_weight">Weight</string>
+
+    <!-- Recherche -->
+    <string name="explorer_page_title">Category</string>
+
+    <!-- Recherche icons -->
+    <string name="explorer_page_icon_table">Table</string>
+    <string name="explorer_page_icon_chair">Chair</string>
+    <string name="explorer_page_icon_sofa">Sofa</string>
+    <string name="explorer_page_icon_armchair">Armchair</string>
+    <string name="explorer_page_icon_desk">Desk</string>
+
+    <!-- Panier -->
+    <string name="cart_page_title">Your Cart</string>
+
+    <!-- Paramètres -->
+    <string name="settings_page_title">Settings</string>
+
+    <!-- Genre user -->
+    <string-array name="planets_array">
+        <item>Homme</item>
+        <item>Femme</item>
+    </string-array>
+
 </resources>

@@ -1,15 +1,17 @@
-package com.zenlaeth.tpsup
+package com.zenlaeth.tpsup.model
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.zenlaeth.tpsup.bean.ArmorBean
+import com.zenlaeth.tpsup.api.RequestUtils
 import kotlin.concurrent.thread
 
-class MonsterViewModel : ViewModel() {
-    val data = MutableLiveData<MonsterBean?>()
+class ArmorViewModel : ViewModel() {
+    val data = MutableLiveData<ArmorBean?>()
     val errorMessage = MutableLiveData<String?>()
     val runInProgress = MutableLiveData<Boolean>(false)
 
-    fun loadMonster(){
+    fun loadArmor(){
         //On reste l'ecran sur un clic du bouton
         runInProgress.postValue(true)
         errorMessage.postValue(null)
@@ -19,7 +21,7 @@ class MonsterViewModel : ViewModel() {
         thread {
             try {
                 //Chercher mes données
-                data.postValue(RequestUtils.loadMonster())
+                data.postValue(RequestUtils.loadArmor())
             } catch (e: Exception) {
                 e.printStackTrace()
                 //je fais évoluer mon message d'erreur

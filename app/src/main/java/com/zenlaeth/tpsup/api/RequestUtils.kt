@@ -1,7 +1,9 @@
-package com.zenlaeth.tpsup
+package com.zenlaeth.tpsup.api
 
 import android.os.SystemClock
 import com.google.gson.Gson
+import com.zenlaeth.tpsup.bean.ArmorBean
+import com.zenlaeth.tpsup.bean.MonsterBean
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -12,10 +14,11 @@ const val URL_MONSTER = "https://mhw-db.com/monsters/23"
 const val URL_ARMOR = "https://mhw-db.com/armor/sets/20"
 val client = OkHttpClient()
 val gson = Gson()
+
 class RequestUtils {
     companion object {
         fun loadMonster ():
-        MonsterBean{
+                MonsterBean {
             SystemClock.sleep(3000) // Attente 3 secondes
             val json = sendGet(URL_MONSTER.format())
             return if (Random().nextBoolean())

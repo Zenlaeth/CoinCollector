@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="150dp"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/default_margin"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp">
+
+    <ImageView
+        android:id="@+id/image_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/trending1" />
+
+    <TextView
+        android:id="@+id/name_item"
+        style="@style/SubtitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_name"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/description_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_description"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/price_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_price"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/prices_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_price"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/dimension_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_dimension"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/weight_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_dimension"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/colors_name_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_dimension"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/colors_hexa_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_dimension"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/id_item"
+        style="@style/DefaultTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_article_dimension"
+        android:visibility="invisible"/>
+
+</androidx.cardview.widget.CardView>

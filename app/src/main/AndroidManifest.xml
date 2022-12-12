@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TPSup">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,20 +20,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MonsterActivity"
+            android:name=".activity.MonsterDetailsActivity"
+            android:label="Monster details"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".activity.MonsterActivity"
             android:label="Monster datas"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MonsterActivity" />
+                android:value=".activity.MonsterActivity" />
         </activity>
         <activity
-            android:name=".ArmorActivity"
+            android:name=".activity.ArmorActivity"
             android:label="Full set"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ArmorActivity" />
+                android:value=".activity.ArmorActivity" />
         </activity>
     </application>
 

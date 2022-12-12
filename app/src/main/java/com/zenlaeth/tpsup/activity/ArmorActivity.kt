@@ -1,4 +1,4 @@
-package com.zenlaeth.tpsup
+package com.zenlaeth.tpsup.activity
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
+import com.zenlaeth.tpsup.model.ArmorViewModel
 import com.zenlaeth.tpsup.databinding.ActivityArmorBinding
 
 class ArmorActivity: AppCompatActivity(), View.OnClickListener {

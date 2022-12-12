@@ -1,19 +1,13 @@
-package com.zenlaeth.tpsup
+package com.zenlaeth.tpsup.activity
 
-import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import com.zenlaeth.tpsup.databinding.ActivityMainBinding
-import android.app.TimePickerDialog
-import android.app.DatePickerDialog
 import android.content.Intent
 import android.widget.Button
-import android.widget.DatePicker
-import android.widget.TimePicker
-import java.util.*
+import com.zenlaeth.tpsup.R
 
 
 class MainActivity : AppCompatActivity() {
