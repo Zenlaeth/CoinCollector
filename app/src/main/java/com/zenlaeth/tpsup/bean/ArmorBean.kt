@@ -1,100 +1,65 @@
 package com.zenlaeth.tpsup.bean
 
 data class ArmorBean(
-    var bonus: BonusBean,
-    var id: Int,
-    var name: String,
-    var pieces: List<PieceBean>,
-    var rank: String
+    val armorSet: ArmorSet,
+    val assets: Assets,
+    val attributes: Attributes,
+    val crafting: Crafting,
+    val defense: Defense,
+    val id: Int,
+    val name: String,
+    val rank: String,
+    val rarity: Int,
+    val resistances: Resistances,
+    val skills: List<Skill>,
+    val slots: List<Slot>,
+    val type: String
 )
 
-data class BonusBean(
-    var id: Int,
-    var name: String,
-    var ranks: List<RankBean>
+data class ArmorSet(
+    val bonus: Int,
+    val id: Int,
+    val name: String,
+    val pieces: List<Int>,
+    val rank: String
 )
-
-data class PieceBean(
-    var armorSet: Int,
-    var assets: Assets,
-    var attributes: AttributesBean,
-    var crafting: CraftingBean,
-    var defense: DefenseBean,
-    var id: Int,
-    var name: String,
-    var rank: String,
-    var rarity: Int,
-    var resistances: ResistancesBean,
-    var skills: List<SkillXBean>,
-    var slots: List<Any>,
-    var type: String
-)
-
-data class RankBean(
-    var description: String,
-    var pieces: Int,
-    var skill: SkillBean
-)
-
-data class SkillBean(
-    var id: Int,
-    var level: Int,
-    var modifiers: ModifiersBean,
-    var skill: Int,
-    var skillName: String
-)
-
-class ModifiersBean
 
 data class Assets(
-    var imageFemale: String,
-    var imageMale: String
+    val imageFemale: String,
+    val imageMale: String
 )
 
-class AttributesBean
+class Attributes
 
-data class CraftingBean(
-    var materials: List<MaterialBean>
+data class Crafting(
+    val materials: List<Any>
 )
 
-data class DefenseBean(
-    var augmented: Int,
-    var base: Int,
-    var max: Int
+data class Defense(
+    val augmented: Int,
+    val base: Int,
+    val max: Int
 )
 
-data class ResistancesBean(
-    var dragon: Int,
-    var fire: Int,
-    var ice: Int,
-    var thunder: Int,
-    var water: Int
+data class Resistances(
+    val dragon: Int,
+    val fire: Int,
+    val ice: Int,
+    val thunder: Int,
+    val water: Int
 )
 
-data class SkillXBean(
-    var description: String,
-    var id: Int,
-    var level: Int,
-    var modifiers: ModifiersXBean,
-    var skill: Int,
-    var skillName: String
+data class Skill(
+    val description: String,
+    val id: Int,
+    val level: Int,
+    val modifiers: Modifiers,
+    val skill: Int,
+    val skillName: String
 )
 
-data class MaterialBean(
-    var item: Item,
-    var quantity: Int
+data class Slot(
+    val rank: Int
 )
 
-data class ItemBean(
-    var carryLimit: Int,
-    var description: String,
-    var id: Int,
-    var name: String,
-    var rarity: Int,
-    var value: Int
-)
-
-data class ModifiersXBean(
-    var damageFire: Int,
-    var resistFire: Int
-)
+class Modifiers

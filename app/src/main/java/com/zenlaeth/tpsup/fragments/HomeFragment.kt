@@ -13,7 +13,6 @@ import com.zenlaeth.tpsup.adapter.MonsterAdapter
 import com.zenlaeth.tpsup.api.ApiService
 import com.zenlaeth.tpsup.api.ServiceGenerator
 import com.zenlaeth.tpsup.bean.MonsterBean
-import com.zenlaeth.tpsup.model.MonsterViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,11 +31,12 @@ class HomeFragment(private val context: HomeActivity) : Fragment() {
         call.enqueue(object : Callback<MutableList<MonsterBean>> {
             override fun onResponse(call: Call<MutableList<MonsterBean>>, response: Response<MutableList<MonsterBean>>) {
                 if(response.isSuccessful){
+                    val sortBody = response.body()?.sortedBy { it.name }
                     hRecyclerView.apply {
-                        hRecyclerView.adapter = MonsterAdapter(context as HomeActivity, response.body()!!, R.layout.monster_item_horizontal)
+                        hRecyclerView.adapter = MonsterAdapter(context as HomeActivity, sortBody!!, R.layout.item_horizontal)
                     }
                     vRecyclerView.apply {
-                        vRecyclerView.adapter = MonsterAdapter(context as HomeActivity, response.body()!!, R.layout.monster_item_vertical)
+                        vRecyclerView.adapter = MonsterAdapter(context as HomeActivity, sortBody!!, R.layout.item_vertical)
                     }
                 }
             }
@@ -50,5 +50,4 @@ class HomeFragment(private val context: HomeActivity) : Fragment() {
 
         return view
     }
-
 }

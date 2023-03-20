@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home_page"
-        android:title="@string/bottom_home_item"
-        android:icon="@drawable/ic_home"/>
+        android:id="@+id/monsters_page"
+        android:title=""
+        android:icon="@drawable/ic_egg"/>
     <item
-        android:id="@+id/explorer_page"
-        android:title="@string/bottom_explorer_item"
-        android:icon="@drawable/ic_search"/>
+        android:id="@+id/armors_page"
+        android:title=""
+        android:icon="@drawable/ic_curtain"/>
     <item
         android:id="@+id/cart_page"
         android:title="@string/bottom_cart_item"

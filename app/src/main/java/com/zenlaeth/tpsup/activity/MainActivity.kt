@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         var armorB = findViewById<Button>(R.id.btnArmor)
         armorB.setOnClickListener {
             // Handler code here.
-            val intent = Intent(this, ArmorActivity::class.java)
+            val intent = Intent(this, ArmorOldActivity::class.java)
             this.startActivity(intent);
         }
     }
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             this.startActivity(intent);
         }
         if(item.getItemId() == 29) {
-            val intent = Intent(this, ArmorActivity::class.java)
+            val intent = Intent(this, ArmorOldActivity::class.java)
             this.startActivity(intent);
         }
         return super.onOptionsItemSelected(item)

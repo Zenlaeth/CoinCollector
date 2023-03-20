@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zenlaeth.tpsup.R
+import com.zenlaeth.tpsup.fragments.ArmorFragment
 import com.zenlaeth.tpsup.fragments.HomeFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -20,8 +21,12 @@ class HomeActivity : AppCompatActivity() {
         navigationView.setOnNavigationItemSelectedListener {
             when(it.itemId)
             {
-                R.id.home_page -> {
+                R.id.monsters_page -> {
                     loadFragment(HomeFragment(this), R.string.home_page_title)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.armors_page -> {
+                    loadFragment(ArmorFragment(this), R.string.home_page_title)
                     return@setOnNavigationItemSelectedListener true
                 }
                 else -> false
