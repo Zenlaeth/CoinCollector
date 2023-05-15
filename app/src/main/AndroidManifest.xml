@@ -36,14 +36,6 @@
                 android:value=".activity.MonsterActivity" />
         </activity>
         <activity
-            android:name=".activity.ArmorOldActivity"
-            android:label="Full set"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.ArmorOldActivity" />
-        </activity>
-        <activity
             android:name=".activity.ArmorActivity"
             android:label="Armor"
             android:launchMode="singleTop">

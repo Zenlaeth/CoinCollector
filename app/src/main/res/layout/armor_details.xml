@@ -19,7 +19,7 @@
                 android:layout_height="300dp">
 
                 <ImageView
-                    android:id="@+id/article_image_item"
+                    android:id="@+id/image_item"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -34,22 +34,22 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/article_item_id"
+                    android:id="@+id/item_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"/>
 
                 <TextView
-                    android:id="@+id/article_detail_name"
+                    android:id="@+id/detail_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/article_name_item"
+                    android:text="@string/name_item"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_type_label"
+                    android:id="@+id/detail_type_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Type"
@@ -58,7 +58,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_type"
+                    android:id="@+id/detail_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="API"
@@ -67,16 +67,16 @@
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_species_label"
+                    android:id="@+id/detail_rank_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Species"
+                    android:text="Rank"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_species"
+                    android:id="@+id/detail_rank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="API"
@@ -85,16 +85,16 @@
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_description_label"
+                    android:id="@+id/detail_skills_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/article_description_label_item"
+                    android:text="Skills"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_description"
+                    android:id="@+id/detail_skills"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="API"
@@ -103,16 +103,16 @@
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_locations_label"
+                    android:id="@+id/detail_defense_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Locations"
+                    android:text="Defense"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_locations"
+                    android:id="@+id/detail_defense"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="API"
@@ -121,25 +121,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_weaknesses_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Weaknesses"
-                    android:layout_marginTop="@dimen/default_margin"
-                    style="@style/TitleTextStyle"
-                    />
-
-                <TextView
-                    android:id="@+id/article_detail_weaknesses"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="API"
-                    android:layout_marginTop="@dimen/default_margin"
-                    style="@style/DefaultTextStyle"
-                    />
-
-                <TextView
-                    android:id="@+id/article_detail_resistances_label"
+                    android:id="@+id/detail_resistances_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Resistances"
@@ -148,7 +130,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_resistances"
+                    android:id="@+id/detail_resistances"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="API"
@@ -157,16 +139,16 @@
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_rewards_label"
+                    android:id="@+id/detail_crafting_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rewards"
+                    android:text="Crafting"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/article_detail_rewards"
+                    android:id="@+id/detail_crafting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="API"

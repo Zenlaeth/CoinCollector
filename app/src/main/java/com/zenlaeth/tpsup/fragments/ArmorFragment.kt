@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.zenlaeth.tpsup.activity.HomeActivity
 import com.zenlaeth.tpsup.R
 import com.zenlaeth.tpsup.activity.ArmorActivity
+import com.zenlaeth.tpsup.activity.HomeActivity
 import com.zenlaeth.tpsup.adapter.ListArmorsAdapter
 
 class ArmorFragment(private val context: HomeActivity) : Fragment() {

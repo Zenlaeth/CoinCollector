@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.zenlaeth.tpsup.activity.HomeActivity
 import com.zenlaeth.tpsup.R
+import com.zenlaeth.tpsup.activity.HomeActivity
 import com.zenlaeth.tpsup.adapter.MonsterAdapter
 import com.zenlaeth.tpsup.api.ApiService
 import com.zenlaeth.tpsup.api.ServiceGenerator

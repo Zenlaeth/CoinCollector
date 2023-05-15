@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import com.zenlaeth.tpsup.*
 import com.zenlaeth.tpsup.activity.ArmorActivity
+import com.zenlaeth.tpsup.activity.ArmorDetailsActivity
 import com.zenlaeth.tpsup.activity.MonsterDetailsActivity
 import com.zenlaeth.tpsup.bean.ArmorBean
 
@@ -34,7 +35,7 @@ class ArmorAdapter(
 
         init {
             view.setOnClickListener{
-                val intent = Intent(view.context, MonsterDetailsActivity::class.java)
+                val intent = Intent(view.context, ArmorDetailsActivity::class.java)
                 // passer l'id à l'activité puis get unique armor
                 intent.putExtra(armorIdKey, armorId?.text)
                 view.context.startActivity(intent)
