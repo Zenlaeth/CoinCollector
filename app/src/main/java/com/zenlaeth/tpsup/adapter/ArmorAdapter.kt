@@ -36,6 +36,7 @@ class ArmorAdapter(
         init {
             view.setOnClickListener{
                 val intent = Intent(view.context, ArmorDetailsActivity::class.java)
+
                 // passer l'id à l'activité puis get unique armor
                 intent.putExtra(armorIdKey, armorId?.text)
                 view.context.startActivity(intent)

@@ -18,7 +18,7 @@ import retrofit2.Response
 class ArmorActivity  : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_armor_head)
+        setContentView(R.layout.list_armor)
 
         // charger api
         val vRecyclerView: RecyclerView = findViewById(R.id.vertical_recycler_view)
@@ -34,7 +34,8 @@ class ArmorActivity  : AppCompatActivity(){
                 if (response.isSuccessful) {
                     vRecyclerView.apply {
                         progressBar.isVisible = true
-                        val body = response.body()?.filter { it.type == "head" }
+
+                        val body = response.body()?.filter { it.type == intent.getStringExtra("Type") }
                         val sortBody = body?.sortedBy { it.name }
 
                         vRecyclerView.adapter =

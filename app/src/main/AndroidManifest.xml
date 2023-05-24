@@ -28,12 +28,12 @@
                 android:value=".activity.HomeActivity" />
         </activity>
         <activity
-            android:name=".activity.MonsterActivity"
-            android:label="Monster datas"
+            android:name=".activity.ArmorDetailsActivity"
+            android:label="Armor details"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MonsterActivity" />
+                android:value=".activity.ArmorActivity" />
         </activity>
         <activity
             android:name=".activity.ArmorActivity"

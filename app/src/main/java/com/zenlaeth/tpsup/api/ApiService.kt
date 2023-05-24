@@ -16,6 +16,9 @@ interface ApiService {
     @GET("/armor")
     fun getArmors() :Call<MutableList<ArmorBean>>
 
+    @GET("/armor/{id}")
+    fun getArmor(@Path("id") searchById:String?) :Call<ArmorBean>
+
 //    @GET("/categories")
 //    fun getCategories() :Call<MutableList<CategoryModel>>
 //
