@@ -49,7 +49,6 @@ class ArmorActivity  : AppCompatActivity(){
                 t.printStackTrace()
                 Log.e("error", t.message.toString())
             }
-
         })
     }
 }

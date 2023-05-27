@@ -1,7 +1,9 @@
 package com.zenlaeth.tpsup.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -30,11 +32,12 @@ class MonsterDetailsActivity : AppCompatActivity(){
         val monsterWeaknessesTv: TextView = findViewById(R.id.detail_weaknesses)
         val monsterResistancesTv: TextView = findViewById(R.id.detail_resistances)
         val monsterRewardsTv: TextView = findViewById(R.id.detail_rewards)
+        val addBCart: Button = findViewById(R.id.addBCart)
 
-        val articleItemId = intent.getStringExtra(MonsterAdapter.ViewHolder.monsterIdKey)
+        val monsterId = intent.getStringExtra(MonsterAdapter.ViewHolder.monsterIdKey)
 
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-        var call = serviceGenerator.getMonster(articleItemId)
+        var call = serviceGenerator.getMonster(monsterId)
 
         call.enqueue(object : Callback<MonsterBean> {
             override fun onResponse(call: Call<MonsterBean>, response: Response<MonsterBean>) {
@@ -95,5 +98,12 @@ class MonsterDetailsActivity : AppCompatActivity(){
                 t.message?.let { it1 -> Log.e("error", it1) }
             }
         })
+
+        addBCart.setOnClickListener {
+            // Handler code here.
+            val intent = Intent(this, SetActivity::class.java)
+            intent.putExtra("MonsterId", monsterId)
+            this.startActivity(intent);
+        }
     }
 }

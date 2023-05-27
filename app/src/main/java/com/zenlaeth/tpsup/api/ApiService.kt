@@ -20,6 +20,7 @@ interface ApiService {
     @GET("/armor/{id}")
     fun getArmor(@Path("id") searchById:String?) :Call<ArmorBean>
 
+
     @GET("/weapons")
     fun getWeapons() :Call<MutableList<WeaponBean>>
 

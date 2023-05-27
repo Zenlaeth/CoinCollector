@@ -4,80 +4,86 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import com.zenlaeth.tpsup.R
-//import com.zenlaeth.tpsup.api.ApiService
-//import com.zenlaeth.tpsup.api.ServiceGenerator
-//
-//import retrofit2.Call
-//import retrofit2.Callback
-//import retrofit2.Response
-//import android.app.Activity
-//import okhttp3.MultipartBody
-//import okhttp3.RequestBody
-//import okhttp3.ResponseBody
-//import retrofit2.await
-
+import androidx.lifecycle.lifecycleScope
+import com.google.firebase.auth.FirebaseAuth
+import com.zenlaeth.tpsup.api.FirebaseManager
+import com.zenlaeth.tpsup.databinding.SignInActivityBinding
+import com.zenlaeth.tpsup.entity.User
+import kotlinx.coroutines.launch
 
 class SignInActivity : AppCompatActivity() {
+    private lateinit var binding: SignInActivityBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sign_in_activity)
 
-//        var loginB = findViewById<Button>(R.id.loginBSignIn)
-//        loginB.setOnClickListener {
-//            val email = findViewById<TextView>(R.id.emailEtSignIn).text.toString().trim()
-//            val password = findViewById<TextView>(R.id.passwordEtSignIn).text.toString().trim()
+        binding = SignInActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        binding.loginBSignIn.setOnClickListener {
+            val email = binding.emailEtSignIn.text.toString()
+            val password = binding.passwordEtSignIn.text.toString()
+
+            if(email.isNotEmpty() && password.isNotEmpty()) {
+                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
+                    if (it.isSuccessful) {
+//                        lifecycleScope.launch {
+//                            val user = FirebaseAuth.getInstance().currentUser
 //
-//            var registerList = listOf(email, password)
-//            for(field in registerList){
-//                if(field.isEmpty()){
-//                    if(field == email) {
-//                        findViewById<TextView>(R.id.emailEtSignIn).error = "Email required"
-//                        findViewById<TextView>(R.id.emailEtSignIn).requestFocus()
-//                    }
-//                    if(field == password) {
-//                        findViewById<TextView>(R.id.passwordEtSignIn).error = "Password required"
-//                        findViewById<TextView>(R.id.passwordEtSignIn).requestFocus()
-//                        return@setOnClickListener
-//                    }
-//                }
-//            }
+//                            user?.let {
+//                                // Name, email address, and profile photo Url
+//                                val name = user.displayName
+//                                val email = user.email
+//                                val photoUrl = user.photoUrl
 //
-//            val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+//                                // Check if user's email is verified
+//                                val emailVerified = user.isEmailVerified
 //
-//            var call = serviceGenerator.loginUser(email, password)
-//            val intent = Intent(this, HomeActivity::class.java)
+//                                // The user's ID, unique to the Firebase project. Do NOT use this value to
+//                                // authenticate with your backend server, if you have one. Use
+//                                // FirebaseUser.getToken() instead.
+//                                val uid = user.uid
+//                            }
 //
-//            call.enqueue(object : Callback<ResponseBody> {
-//                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-//                    if(response.code() == 200) {
-//                        Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG).show()
-//                        Log.e("error", "good")
-//
-//                        this@SignInActivity.startActivity(intent);
-//                    }
-//                    if(response.code() == 401) {
-//                        Toast.makeText(applicationContext, "Email or password incorrect!", Toast.LENGTH_LONG).show()
-//                        Log.e("error", "bad")
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-//                    Toast.makeText(applicationContext, "Email or password incorrect!", Toast.LENGTH_LONG).show()
-//                    Log.e("error", "bad")
-//                }
-//            })
-//        }
-//
-//        var noAccountTv = findViewById<TextView>(R.id.noAccountTvSignIn)
-//        noAccountTv.setOnClickListener {
-//            // Handler code here.
-//            val intent = Intent(this, SignUpActivity::class.java)
-//            this.startActivity(intent);
-//            finish()
-//        }
+////                            val user = FirebaseManager.getCurrentUserData(firebaseAuth.currentUser!!.uid)
+////                            Log.e("hihihihi", user.username)
+////
+////                            onResult(user)
+//                        }
+                        val intent = Intent(this, HomeActivity::class.java)
+                        val successMessage = "Successfully registered!"
+
+                        Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show()
+                        startActivity(intent)
+
+                    } else {
+                        Toast.makeText(this, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Empty fields are not allowed", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        var noAccountTv = binding.noAccountTvSignIn
+        noAccountTv.setOnClickListener {
+            // Handler code here.
+            val intent = Intent(this, SignUpActivity::class.java)
+            this.startActivity(intent);
+            finish()
+        }
     }
+
+//    private fun onResult(
+//        user: User
+//    ) {
+//        val intent = Intent(this, HomeActivity::class.java)
+//        val successMessage = "Successfully registered!"
+//
+//        Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show()
+//        startActivity(intent)
+//    }
 }
