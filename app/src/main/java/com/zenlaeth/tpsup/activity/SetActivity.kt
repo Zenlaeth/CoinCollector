@@ -95,7 +95,7 @@ class SetActivity : AppCompatActivity(){
                 _headId = listIds[l.toInt()].toInt()
                 getStatsEquipment(
                     _headId.toString(),
-                    binding.headImage
+                    binding.statsHead.headImage
                 )
             }
             if(type == "chest") _chestId = listIds[l.toInt()].toInt()
@@ -125,7 +125,6 @@ class SetActivity : AppCompatActivity(){
                         } else if(field == "id") {
                             items.add(item.id.toString())
                         }
-
                     }
                 }
             }
