@@ -23,46 +23,11 @@ class ArmorFragment(private val context: HomeActivity) : Fragment() {
 
         armorsRecyclerView.adapter = ListArmorsAdapter(object : ListArmorsAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                if (position == 0) {
-                    requireActivity().run{
-                        val intent = Intent(this, ArmorActivity::class.java)
-                        intent.putExtra("Type", "head")
-
-                        startActivity(intent)
-                    }
-                }
-                if (position == 1) {
-                    requireActivity().run{
-                        val intent = Intent(this, ArmorActivity::class.java)
-                        intent.putExtra("Type", "chest")
-
-                        startActivity(intent)
-                    }
-                }
-                if (position == 2) {
-                    requireActivity().run{
-                        val intent = Intent(this, ArmorActivity::class.java)
-                        intent.putExtra("Type", "gloves")
-
-                        startActivity(intent)
-                    }
-                }
-                if (position == 3) {
-                    requireActivity().run{
-                        val intent = Intent(this, ArmorActivity::class.java)
-                        intent.putExtra("Type", "waist")
-
-                        startActivity(intent)
-                    }
-                }
-                if (position == 4) {
-                    requireActivity().run{
-                        val intent = Intent(this, ArmorActivity::class.java)
-                        intent.putExtra("Type", "legs")
-
-                        startActivity(intent)
-                    }
-                }
+                if (position == 0) runActivity("head")
+                if (position == 1) runActivity("chest")
+                if (position == 2) runActivity("gloves")
+                if (position == 3) runActivity("waist")
+                if (position == 4) runActivity("legs")
             }
         })
         armorsRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -102,5 +67,14 @@ class ArmorFragment(private val context: HomeActivity) : Fragment() {
 //        })
 
         return view
+    }
+
+    fun runActivity(typeName: String) {
+        requireActivity().run{
+            val intent = Intent(this, ArmorActivity::class.java)
+            intent.putExtra("Type", typeName)
+
+            startActivity(intent)
+        }
     }
 }

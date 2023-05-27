@@ -2,6 +2,7 @@ package com.zenlaeth.tpsup.api
 
 import com.zenlaeth.tpsup.bean.ArmorBean
 import com.zenlaeth.tpsup.bean.MonsterBean
+import com.zenlaeth.tpsup.bean.WeaponBean
 import com.zenlaeth.tpsup.model.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -18,6 +19,12 @@ interface ApiService {
 
     @GET("/armor/{id}")
     fun getArmor(@Path("id") searchById:String?) :Call<ArmorBean>
+
+    @GET("/weapons")
+    fun getWeapons() :Call<MutableList<WeaponBean>>
+
+    @GET("/weapons/{id}")
+    fun getWeapon(@Path("id") searchById:String?) :Call<WeaponBean>
 
 //    @GET("/categories")
 //    fun getCategories() :Call<MutableList<CategoryModel>>

@@ -28,6 +28,14 @@
                 android:value=".activity.HomeActivity" />
         </activity>
         <activity
+            android:name=".activity.ArmorActivity"
+            android:label="Armor"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.HomeActivity" />
+        </activity>
+        <activity
             android:name=".activity.ArmorDetailsActivity"
             android:label="Armor details"
             android:launchMode="singleTop">
@@ -36,12 +44,20 @@
                 android:value=".activity.ArmorActivity" />
         </activity>
         <activity
-            android:name=".activity.ArmorActivity"
-            android:label="Armor"
+            android:name=".activity.WeaponActivity"
+            android:label="Weapon"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".activity.WeaponDetailsActivity"
+            android:label="Weapon details"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.WeaponActivity" />
         </activity>
     </application>
 

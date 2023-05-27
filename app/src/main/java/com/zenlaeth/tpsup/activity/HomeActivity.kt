@@ -8,6 +8,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zenlaeth.tpsup.R
 import com.zenlaeth.tpsup.fragments.ArmorFragment
 import com.zenlaeth.tpsup.fragments.HomeFragment
+import com.zenlaeth.tpsup.fragments.WeaponFragment
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,10 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.armors_page -> {
                     loadFragment(ArmorFragment(this), R.string.home_page_title)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.weapons_page -> {
+                    loadFragment(WeaponFragment(this), R.string.home_page_title)
                     return@setOnNavigationItemSelectedListener true
                 }
                 else -> false

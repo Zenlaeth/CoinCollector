@@ -8,15 +8,40 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zenlaeth.tpsup.R
 
-class ListArmorsAdapter(private var mListener: onItemClickListener): RecyclerView.Adapter<ListArmorsAdapter.ViewHolder>() {
+class ListWeaponAdapter(private var mListener: onItemClickListener): RecyclerView.Adapter<ListWeaponAdapter.ViewHolder>() {
     val titles = arrayOf(
-        "Heads",
-        "Chest", 
-        "Gloves",
-        "Waist",
-        "Legs"
+        "Great sword",
+        "Long sword",
+        "Sword & shield",
+        "Dual blades",
+        "Hammer",
+        "Hunting horn",
+        "Lance",
+        "Gunlance",
+        "Switch axe",
+        "Charge blade",
+        "Insect glaive",
+        "Light bowgun",
+        "Heavy bowgun",
+        "Bow"
+
     )
-    val images = arrayOf(R.drawable.ic_profile, R.drawable.ic_order, R.drawable.ic_address, R.drawable.ic_payment, R.drawable.ic_payment)
+    val images = arrayOf(
+        R.drawable.ic_profile,
+        R.drawable.ic_order,
+        R.drawable.ic_address,
+        R.drawable.ic_payment,
+        R.drawable.ic_payment,
+        R.drawable.ic_profile,
+        R.drawable.ic_order,
+        R.drawable.ic_address,
+        R.drawable.ic_payment,
+        R.drawable.ic_payment,
+        R.drawable.ic_profile,
+        R.drawable.ic_order,
+        R.drawable.ic_address,
+        R.drawable.ic_payment
+    )
 
     /*    private lateinit var mListener : onItemClickListener*/
 
