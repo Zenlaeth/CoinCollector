@@ -73,7 +73,7 @@
                 android:value=".activity.WeaponActivity" />
         </activity>
         <activity
-            android:name=".activity.SetActivity"
+            android:name=".activity.CreateSetActivity"
             android:label="Create a set"
             android:launchMode="singleTop">
             <meta-data

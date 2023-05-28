@@ -1,7 +1,5 @@
 package com.zenlaeth.tpsup.bean
 
-import com.google.gson.annotations.SerializedName
-
 data class MonsterBean(
     var ailments: List<Any>,
     var description: String,

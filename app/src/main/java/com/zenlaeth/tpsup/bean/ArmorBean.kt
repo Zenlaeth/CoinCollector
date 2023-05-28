@@ -1,65 +1,77 @@
 package com.zenlaeth.tpsup.bean
 
 data class ArmorBean(
-    val armorSet: ArmorSet,
-    val assets: Assets,
-    val attributes: Attributes,
-    val crafting: Crafting,
-    val defense: Defense,
-    val id: Int,
-    val name: String,
-    val rank: String,
-    val rarity: Int,
-    val resistances: Resistances,
-    val skills: List<Skill>,
-    val slots: List<Slot>,
-    val type: String
+    var armorSet: ArmorSet,
+    var assets: Assets,
+    var attributes: Attributes,
+    var crafting: Crafting,
+    var defense: Defense,
+    var id: Int,
+    var name: String,
+    var rank: String,
+    var rarity: Int,
+    var resistances: Resistances,
+    var skills: List<Skill>,
+    var slots: List<Any>,
+    var type: String
 )
 
 data class ArmorSet(
-    val bonus: Int,
-    val id: Int,
-    val name: String,
-    val pieces: List<Int>,
-    val rank: String
+    var bonus: Any,
+    var id: Int,
+    var name: String,
+    var pieces: List<Int>,
+    var rank: String
 )
 
 data class Assets(
-    val imageFemale: String,
-    val imageMale: String
+    var imageFemale: String,
+    var imageMale: String
 )
 
-class Attributes
+data class Attributes(
+    var requiredGender: String
+)
 
 data class Crafting(
-    val materials: List<Any>
+    var materials: List<Material>
 )
 
 data class Defense(
-    val augmented: Int,
-    val base: Int,
-    val max: Int
+    var augmented: Int,
+    var base: Int,
+    var max: Int
 )
 
 data class Resistances(
-    val dragon: Int,
-    val fire: Int,
-    val ice: Int,
-    val thunder: Int,
-    val water: Int
+    var dragon: Int,
+    var fire: Int,
+    var ice: Int,
+    var thunder: Int,
+    var water: Int
 )
 
 data class Skill(
-    val description: String,
-    val id: Int,
-    val level: Int,
-    val modifiers: Modifiers,
-    val skill: Int,
-    val skillName: String
+    var description: String,
+    var id: Int,
+    var level: Int,
+    var modifiers: Modifiers,
+    var skill: Int,
+    var skillName: String
 )
 
-data class Slot(
-    val rank: Int
+data class Material(
+    var item: Item,
+    var quantity: Int
+)
+
+data class ItemA(
+    var carryLimit: Int,
+    var description: String,
+    var id: Int,
+    var name: String,
+    var rarity: Int,
+    var value: Int
 )
 
 class Modifiers

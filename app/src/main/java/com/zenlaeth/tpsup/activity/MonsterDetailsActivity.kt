@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -101,7 +100,7 @@ class MonsterDetailsActivity : AppCompatActivity(){
 
         addBCart.setOnClickListener {
             // Handler code here.
-            val intent = Intent(this, SetActivity::class.java)
+            val intent = Intent(this, CreateSetActivity::class.java)
             intent.putExtra("MonsterId", monsterId)
             this.startActivity(intent);
         }

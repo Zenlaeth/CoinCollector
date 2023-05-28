@@ -49,7 +49,7 @@
         style="@style/DefaultTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/item_article_name"
+        android:text=""
         app:layout_constraintStart_toStartOf="@+id/name_item"
         app:layout_constraintTop_toBottomOf="@+id/view_separation"
 />

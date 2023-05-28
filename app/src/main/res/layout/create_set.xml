@@ -5,7 +5,7 @@
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.SetActivity">
+    tools:context=".activity.CreateSetActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,18 +16,20 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
-            <TextView
-                android:id="@+id/titleLabelTvSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hunter Book"
-                style="@style/TitleTextStyle"/>
+
+<!--            <TextView-->
+<!--                android:id="@+id/titleLabelTvSignUp"-->
+<!--                style="@style/TitleTextStyle"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Hunter Book" />-->
 
             <TextView
                 android:id="@+id/continueTvSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign up to continue"
+                android:gravity="center"
+                android:text="Find the perfect set against this terrifying monster and share it to others !"
                 android:layout_marginBottom="30dp"
                 style="@style/DefaultTextStyle"/>
 
@@ -57,39 +59,13 @@
                     android:id="@+id/head_dropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Head"
-                    android:inputType="none"
+                    android:hint="Enter head name"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/head_image"
-                        android:layout_width="500px"
-                        android:layout_height="500px"
-
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/mhw_nergigante"/>
-
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/defenseHeadLabel"
-                    style="@style/TitleTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stats :"
-                    android:textSize="20sp" />
-            </LinearLayout>
+            <include
+                android:id="@+id/stats_head"
+                layout="@layout/stats_armor" />
 
             <!-- Chest -->
             <com.google.android.material.textfield.TextInputLayout
@@ -102,9 +78,12 @@
                     android:id="@+id/chest_dropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Chest"
-                    android:inputType="none"/>
+                    android:hint="Enter chest name"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+            <include
+                android:id="@+id/stats_chest"
+                layout="@layout/stats_armor" />
 
             <!-- Gloves -->
             <com.google.android.material.textfield.TextInputLayout
@@ -117,9 +96,12 @@
                     android:id="@+id/gloves_dropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Gloves"
-                    android:inputType="none"/>
+                    android:hint="Enter gloves name"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+            <include
+                android:id="@+id/stats_gloves"
+                layout="@layout/stats_armor" />
 
             <!-- Waist -->
             <com.google.android.material.textfield.TextInputLayout
@@ -132,9 +114,12 @@
                     android:id="@+id/waist_dropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Waist"
-                    android:inputType="none"/>
+                    android:hint="Enter waist name"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+            <include
+                android:id="@+id/stats_waist"
+                layout="@layout/stats_armor" />
 
             <!-- Legs -->
             <com.google.android.material.textfield.TextInputLayout
@@ -147,9 +132,12 @@
                     android:id="@+id/legs_dropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Legs"
-                    android:inputType="none"/>
+                    android:hint="Enter legs name"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+            <include
+                android:id="@+id/stats_legs"
+                layout="@layout/stats_armor" />
 
             <!-- Type weapon -->
             <com.google.android.material.textfield.TextInputLayout
@@ -177,9 +165,12 @@
                     android:id="@+id/weapon_dropdown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Weapon"
-                    android:inputType="none"/>
+                    android:hint="Weapon" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <include
+                android:id="@+id/stats_weapon"
+                layout="@layout/stats_weapon" />
 
 
             <!-- Create -->
@@ -187,7 +178,7 @@
                 android:id="@+id/createSet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register"
+                android:text="Create"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
