@@ -1,5 +1,6 @@
 package com.zenlaeth.tpsup.activity
 
+import android.content.ContextWrapper
 import android.net.Uri
 import android.os.Bundle
 import android.text.Html
@@ -14,6 +15,7 @@ import com.zenlaeth.tpsup.R
 import com.zenlaeth.tpsup.api.ApiService
 import com.zenlaeth.tpsup.api.ApiService.Companion.getListArmorsByType
 import com.zenlaeth.tpsup.api.ApiService.Companion.getListWeaponsByType
+import com.zenlaeth.tpsup.api.ApiService.Companion.getStatsWeapon
 import com.zenlaeth.tpsup.api.ApiService.Companion.getTypeWeapons
 import com.zenlaeth.tpsup.api.ServiceGenerator
 import com.zenlaeth.tpsup.bean.ArmorBean
@@ -86,6 +88,8 @@ class CreateSetActivity : AppCompatActivity(){
                 id,
                 binding.statsWeapon.weaponImage,
                 binding.statsWeapon.detailAttack,
+                this@CreateSetActivity,
+                applicationContext as ContextWrapper
             )
         }
 
@@ -160,116 +164,124 @@ class CreateSetActivity : AppCompatActivity(){
             if(type == "legs") _legsId = id.toInt()
 
             // load stats
-            getStatsArmor(
+            ApiService.getStatsArmor(
                 id,
                 stats.headImage,
                 stats.detailDefense,
-                stats.detailResistances
+                stats.detailResistances,
+                this@CreateSetActivity,
+                applicationContext as ContextWrapper
             )
+//            getStatsWeapon(
+//                id,
+//                stats.headImage,
+//                stats.detailDefense,
+//                stats.detailResistances
+//            )
         }
     }
 
-    private fun getStatsArmor(
-        id: String,
-        image: ImageView,
-        defense: TextView,
-        resistance: TextView
-    ) {
-        val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-        var call = serviceGenerator.getArmor(id)
+//    private fun getStatsArmor(
+//        id: String,
+//        image: ImageView,
+//        defense: TextView,
+//        resistance: TextView
+//    ) {
+//        val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+//        var call = serviceGenerator.getArmor(id)
+//
+//        call.enqueue(object : Callback<ArmorBean> {
+//            override fun onResponse(call: Call<ArmorBean>, response: Response<ArmorBean>) {
+//                val response = response.body()
+//
+//                // image
+//                if (response?.assets != null) {
+//                    Glide.with(this@CreateSetActivity)
+//                        .load(Uri.parse(response?.assets.imageMale))
+//                        .into(image)
+//                    Picasso.get().load(response?.assets.imageMale).into(image)
+//                } else {
+//                    image.setImageResource(R.drawable.ic_payment)
+//                }
+//
+//                // defense
+//                var defenses = mapOf(
+//                    "base" to response?.defense?.base.toString(),
+//                    "max" to response?.defense?.max.toString(),
+//                    "augmented" to response?.defense?.augmented.toString()
+//                )
+//                var listDefenses = mutableListOf<String>()
+//
+//                defenses?.forEach(){
+//                    listDefenses.add("\uD83D\uDEE1<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
+//                }
+//
+//                defense.text = Html.fromHtml(listDefenses.joinToString(separator="<br/>"))
+//
+//                // resistances
+//                var resistances = mapOf(
+//                    "fire" to response?.resistances?.fire.toString(),
+//                    "water" to response?.resistances?.water.toString(),
+//                    "ice" to response?.resistances?.ice.toString(),
+//                    "thunder" to response?.resistances?.thunder.toString(),
+//                    "dragon" to response?.resistances?.dragon.toString()
+//                )
+//                var listResistances = mutableListOf<String>()
+//
+//                resistances?.forEach(){
+//                    listResistances.add("️\uD83C\uDF00<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
+//                }
+//
+//                resistance.text = Html.fromHtml(listResistances.joinToString(separator="<br/>"))
+//            }
+//
+//            override fun onFailure(call: Call<ArmorBean>, t: Throwable) {
+//                Toast.makeText(applicationContext, "Error !", Toast.LENGTH_LONG).show()
+//                t.message?.let { it1 -> Log.e("error", it1) }
+//            }
+//        })
+//    }
 
-        call.enqueue(object : Callback<ArmorBean> {
-            override fun onResponse(call: Call<ArmorBean>, response: Response<ArmorBean>) {
-                val response = response.body()
-
-                // image
-                if (response?.assets != null) {
-                    Glide.with(this@CreateSetActivity)
-                        .load(Uri.parse(response?.assets.imageMale))
-                        .into(image)
-                    Picasso.get().load(response?.assets.imageMale).into(image)
-                } else {
-                    image.setImageResource(R.drawable.ic_payment)
-                }
-
-                // defense
-                var defenses = mapOf(
-                    "base" to response?.defense?.base.toString(),
-                    "max" to response?.defense?.max.toString(),
-                    "augmented" to response?.defense?.augmented.toString()
-                )
-                var listDefenses = mutableListOf<String>()
-
-                defenses?.forEach(){
-                    listDefenses.add("\uD83D\uDEE1<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
-                }
-
-                defense.text = Html.fromHtml(listDefenses.joinToString(separator="<br/>"))
-
-                // resistances
-                var resistances = mapOf(
-                    "fire" to response?.resistances?.fire.toString(),
-                    "water" to response?.resistances?.water.toString(),
-                    "ice" to response?.resistances?.ice.toString(),
-                    "thunder" to response?.resistances?.thunder.toString(),
-                    "dragon" to response?.resistances?.dragon.toString()
-                )
-                var listResistances = mutableListOf<String>()
-
-                resistances?.forEach(){
-                    listResistances.add("️\uD83C\uDF00<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
-                }
-
-                resistance.text = Html.fromHtml(listResistances.joinToString(separator="<br/>"))
-            }
-
-            override fun onFailure(call: Call<ArmorBean>, t: Throwable) {
-                Toast.makeText(applicationContext, "Error !", Toast.LENGTH_LONG).show()
-                t.message?.let { it1 -> Log.e("error", it1) }
-            }
-        })
-    }
-
-    private fun getStatsWeapon(
-        id: String,
-        image: ImageView,
-        attack: TextView,
-    ) {
-        val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-        var call = serviceGenerator.getWeapon(id)
-
-        call.enqueue(object : Callback<WeaponBean> {
-            override fun onResponse(call: Call<WeaponBean>, response: Response<WeaponBean>) {
-                val response = response.body()
-
-                // image
-                if (response?.assets != null) {
-                    Glide.with(this@CreateSetActivity)
-                        .load(Uri.parse(response?.assets.image))
-                        .into(image)
-                    Picasso.get().load(response?.assets.image).into(image)
-                } else {
-                    image.setImageResource(R.drawable.ic_payment)
-                }
-
-                // attack
-                var attacks = mapOf(
-                    "display" to response?.attack?.display.toString(),
-                    "raw" to response?.attack?.raw.toString(),
-                )
-                var listAttacks = mutableListOf<String>()
-
-                attacks?.forEach(){
-                    listAttacks.add("⚔️<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
-                }
-
-                attack.text = Html.fromHtml(listAttacks.joinToString(separator="<br/>"))
-            }
-
-            override fun onFailure(call: Call<WeaponBean>, t: Throwable) {
-                Toast.makeText(applicationContext, "Error !", Toast.LENGTH_LONG).show()
-                t.message?.let { it1 -> Log.e("error", it1) }
-            }
-        })
-    }
+//    private fun getStatsWeapon(
+//        id: String,
+//        image: ImageView,
+//        attack: TextView,
+//    ) {
+//        val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+//        var call = serviceGenerator.getWeapon(id)
+//
+//        call.enqueue(object : Callback<WeaponBean> {
+//            override fun onResponse(call: Call<WeaponBean>, response: Response<WeaponBean>) {
+//                val response = response.body()
+//
+//                // image
+//                if (response?.assets != null) {
+//                    Glide.with(this@CreateSetActivity)
+//                        .load(Uri.parse(response?.assets.image))
+//                        .into(image)
+//                    Picasso.get().load(response?.assets.image).into(image)
+//                } else {
+//                    image.setImageResource(R.drawable.ic_payment)
+//                }
+//
+//                // attack
+//                var attacks = mapOf(
+//                    "display" to response?.attack?.display.toString(),
+//                    "raw" to response?.attack?.raw.toString(),
+//                )
+//                var listAttacks = mutableListOf<String>()
+//
+//                attacks?.forEach(){
+//                    listAttacks.add("⚔️<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
+//                }
+//
+//                attack.text = Html.fromHtml(listAttacks.joinToString(separator="<br/>"))
+//            }
+//
+//            override fun onFailure(call: Call<WeaponBean>, t: Throwable) {
+//                Toast.makeText(applicationContext, "Error !", Toast.LENGTH_LONG).show()
+//                t.message?.let { it1 -> Log.e("error", it1) }
+//            }
+//        })
+//    }
 }

@@ -41,6 +41,14 @@
                 android:value=".activity.HomeActivity" />
         </activity>
         <activity
+            android:name=".activity.SetDetailsActivity"
+            android:label="Set details"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MonsterDetailsActivity" />
+        </activity>
+        <activity
             android:name=".activity.ArmorActivity"
             android:label="Armor"
             android:launchMode="singleTop">

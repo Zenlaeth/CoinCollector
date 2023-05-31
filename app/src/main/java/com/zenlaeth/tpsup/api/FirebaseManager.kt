@@ -3,6 +3,7 @@ package com.zenlaeth.tpsup.api
 import android.content.ContentValues.TAG
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
+import com.zenlaeth.tpsup.entity.Set
 import com.zenlaeth.tpsup.entity.User
 import kotlinx.coroutines.tasks.await
 
@@ -16,8 +17,6 @@ interface FirebaseManager {
                 .get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
-                        Log.e("pass1", document["username"].toString())
-
                         val userName = document["username"].toString()
 
                         // add the userName to the list
@@ -28,6 +27,57 @@ interface FirebaseManager {
                 .await()
 
             return arrayList
+        }
+
+        suspend fun getSetsByMonster(
+            idMonster: Int
+        ): MutableList<Set> {
+            val db = FirebaseFirestore.getInstance()
+            val arrayList = mutableListOf<Set>()
+
+            db.collection("sets")
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        val set = document.toObject(Set::class.java)
+
+                        if(set.idMonster == idMonster) {
+                            // add set to the list
+                            arrayList.add(set)
+                        }
+                    }
+                }
+                .await()
+
+            return arrayList
+        }
+
+        suspend fun getSet(
+            id: String
+        ): Set {
+            val db = FirebaseFirestore.getInstance()
+            var set = Set()
+
+            db.collection("sets")
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        if(document["uid"] == id) {
+                            set = document.toObject(Set::class.java)!!
+                        }
+                    }
+                }
+                .await()
+
+//            db.collection("sets")
+//                .document(id.toString())
+//                .get()
+//                .addOnSuccessListener { document ->
+//                    set = document.toObject(Set::class.java)!!
+//                }
+//                .await()
+
+            return set
         }
 
 //        suspend fun getCurrentUserData(idUser: String): User {

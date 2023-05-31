@@ -7,11 +7,16 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import com.zenlaeth.tpsup.R
 import com.zenlaeth.tpsup.adapter.MonsterAdapter
+import com.zenlaeth.tpsup.adapter.SetAdapter
 import com.zenlaeth.tpsup.api.ApiService
+import com.zenlaeth.tpsup.api.FirebaseManager
 import com.zenlaeth.tpsup.api.ServiceGenerator
 import com.zenlaeth.tpsup.bean.MonsterBean
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,8 +36,8 @@ class MonsterDetailsActivity : AppCompatActivity(){
         val monsterWeaknessesTv: TextView = findViewById(R.id.detail_weaknesses)
         val monsterResistancesTv: TextView = findViewById(R.id.detail_resistances)
         val monsterRewardsTv: TextView = findViewById(R.id.detail_rewards)
-        val addBCart: Button = findViewById(R.id.addBCart)
-
+        val addNewSet: Button = findViewById(R.id.add_new_set)
+        val listSets: RecyclerView = findViewById(R.id.list_sets)
         val monsterId = intent.getStringExtra(MonsterAdapter.ViewHolder.monsterIdKey)
 
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
@@ -98,11 +103,20 @@ class MonsterDetailsActivity : AppCompatActivity(){
             }
         })
 
-        addBCart.setOnClickListener {
+        addNewSet.setOnClickListener {
             // Handler code here.
             val intent = Intent(this, CreateSetActivity::class.java)
             intent.putExtra("MonsterId", monsterId)
             this.startActivity(intent);
+        }
+
+        // lists sets
+        listSets.apply {
+            lifecycleScope.launch {
+                val sets = FirebaseManager.getSetsByMonster(monsterId!!.toInt())
+
+                listSets.adapter = SetAdapter(context as MonsterDetailsActivity, sets, R.layout.item_horizontal)
+            }
         }
     }
 }

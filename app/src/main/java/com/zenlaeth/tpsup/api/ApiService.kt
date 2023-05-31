@@ -1,6 +1,16 @@
 package com.zenlaeth.tpsup.api
 
+import android.app.Activity
+import android.content.ContextWrapper
+import android.net.Uri
+import android.text.Html
 import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
+import com.zenlaeth.tpsup.R
 import com.zenlaeth.tpsup.bean.ArmorBean
 import com.zenlaeth.tpsup.bean.MonsterBean
 import com.zenlaeth.tpsup.bean.WeaponBean
@@ -75,27 +85,6 @@ interface ApiService {
             return items
         }
 
-//        suspend fun getListWeaponsByType(type: String): ArrayList<String> {
-//            val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-//            val response = serviceGenerator.getWeapons().awaitResponse()
-//            val items = ArrayList<String>()
-//
-//            if (response.isSuccessful) {
-//                val body = response.body()?.filter { it.type == type }
-//                val sortBody = body?.sortedBy { it.name }
-//
-//                for (item in sortBody!!) {
-//                    var name = item.name + " #" + item.id
-//
-//                    items.add(name)
-//                }
-//            }
-//
-//            Log.e("hehehe", "heh")
-//
-//            return items
-//        }
-
         fun getTypeWeapons(): Array<String> {
             return arrayOf(
                 "great-sword",
@@ -114,6 +103,114 @@ interface ApiService {
                 "bow"
             )
         }
+
+        fun getStatsArmor(
+            id: String,
+            image: ImageView,
+            defense: TextView,
+            resistance: TextView,
+            context: Activity,
+            applicationContext: ContextWrapper
+        ) {
+            val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+            var call = serviceGenerator.getArmor(id)
+
+            call.enqueue(object : Callback<ArmorBean> {
+                override fun onResponse(call: Call<ArmorBean>, response: Response<ArmorBean>) {
+                    val response = response.body()
+
+                    // image
+                    if (response?.assets != null) {
+                        Glide.with(context)
+                            .load(Uri.parse(response?.assets.imageMale))
+                            .into(image)
+                        Picasso.get().load(response?.assets.imageMale).into(image)
+                    } else {
+                        image.setImageResource(R.drawable.ic_payment)
+                    }
+
+                    // defense
+                    var defenses = mapOf(
+                        "base" to response?.defense?.base.toString(),
+                        "max" to response?.defense?.max.toString(),
+                        "augmented" to response?.defense?.augmented.toString()
+                    )
+                    var listDefenses = mutableListOf<String>()
+
+                    defenses?.forEach(){
+                        listDefenses.add("\uD83D\uDEE1<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
+                    }
+
+                    defense.text = Html.fromHtml(listDefenses.joinToString(separator="<br/>"))
+
+                    // resistances
+                    var resistances = mapOf(
+                        "fire" to response?.resistances?.fire.toString(),
+                        "water" to response?.resistances?.water.toString(),
+                        "ice" to response?.resistances?.ice.toString(),
+                        "thunder" to response?.resistances?.thunder.toString(),
+                        "dragon" to response?.resistances?.dragon.toString()
+                    )
+                    var listResistances = mutableListOf<String>()
+
+                    resistances?.forEach(){
+                        listResistances.add("️\uD83C\uDF00<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
+                    }
+
+                    resistance.text = Html.fromHtml(listResistances.joinToString(separator="<br/>"))
+                }
+
+                override fun onFailure(call: Call<ArmorBean>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Error !", Toast.LENGTH_LONG).show()
+                    t.message?.let { it1 -> Log.e("error", it1) }
+                }
+            })
+        }
+
+        fun getStatsWeapon(
+            id: String,
+            image: ImageView,
+            attack: TextView,
+            context: Activity,
+            applicationContext: ContextWrapper
+        ) {
+            val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+            var call = serviceGenerator.getWeapon(id)
+
+            call.enqueue(object : Callback<WeaponBean> {
+                override fun onResponse(call: Call<WeaponBean>, response: Response<WeaponBean>) {
+                    val response = response.body()
+
+                    // image
+                    if (response?.assets != null) {
+                        Glide.with(context)
+                            .load(Uri.parse(response?.assets.image))
+                            .into(image)
+                        Picasso.get().load(response?.assets.image).into(image)
+                    } else {
+                        image.setImageResource(R.drawable.ic_payment)
+                    }
+
+                    // attack
+                    var attacks = mapOf(
+                        "display" to response?.attack?.display.toString(),
+                        "raw" to response?.attack?.raw.toString(),
+                    )
+                    var listAttacks = mutableListOf<String>()
+
+                    attacks?.forEach(){
+                        listAttacks.add("⚔️<u><b><i>" + it.key.capitalize() + "</i></b></u> : "+ it.value.capitalize())
+                    }
+
+                    attack.text = Html.fromHtml(listAttacks.joinToString(separator="<br/>"))
+                }
+
+                override fun onFailure(call: Call<WeaponBean>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Error !", Toast.LENGTH_LONG).show()
+                    t.message?.let { it1 -> Log.e("error", it1) }
+                }
+            })
+        }
     }
 
     @GET("/monsters")
@@ -131,37 +228,7 @@ interface ApiService {
 
     @GET("/weapons")
     fun getWeapons() :Call<MutableList<WeaponBean>>
-//
-//    @GET("/weapons")
-//    suspend fun getWeaponsAwait() : MutableList<WeaponBean>
 
     @GET("/weapons/{id}")
     fun getWeapon(@Path("id") searchById:String?) :Call<WeaponBean>
-
-//    @GET("/categories")
-//    fun getCategories() :Call<MutableList<CategoryModel>>
-//
-//    // user
-
-//    @POST("/auth/login")
-//    fun loginUser(@Body request: LoginUser) :Call<MutableList<LoginUser>>
-
-//    @FormUrlEncoded
-//    @POST("/auth/login")
-//    fun loginUser(@Header("email") email: String, @Header("password") password: String) : Call<MutableList<LoginUser>>
-
-//    @FormUrlEncoded
-//    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
-//    @POST("/auth/login")
-//    fun loginUser(@Field("email") email: String, @Field("password") password: String) : Call<ResponseBody>
-//
-//    @POST("/users/register")
-//    fun createUser(@Body request: NewUser) :Call<MutableList<NewUser>>
-//
-//    // carts
-//    @GET("/carts")
-//    fun getCarts() :Call<MutableList<CartModel>>
-//
-//    @POST("/carts")
-//    fun createCart(@Body request: NewCart) :Call<MutableList<NewCart>>
 }

@@ -21,7 +21,6 @@ class MonsterAdapter(
     // boite pour ranger tous les composants à controler
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val monsterId:TextView? = view.findViewById(R.id.id_item)
-        val monsterImage = view.findViewById<ImageView>(R.id.image_item)
         val monsterName:TextView? = view.findViewById(R.id.name_item)
         val monsterDescription: TextView? = view.findViewById(R.id.description_item)
 
@@ -51,17 +50,10 @@ class MonsterAdapter(
         // recuperer les informations de l'article
         val currentMonster = monsterList[position]
 
-        // utiliser glide pour recuperer l'image à partir de son lien -> composant
-//        Glide.with(context).load(Uri.parse(currentArticle.imageUrl)).into(holder.articleImage)
-//        Picasso.get().load(currentMonster.imageUrl).into(holder.articleImage)
-
         // mettre à jour champs
         holder.monsterId?.text = currentMonster.id.toString()
         holder.monsterName?.text = currentMonster.name
         holder.monsterDescription?.text = currentMonster.description.take(20) + "..."
-
-/*        // mettre à jour l'image (intent extra)
-        holder.articleImage?.drawable */
     }
 
     override fun getItemCount(): Int = monsterList.size

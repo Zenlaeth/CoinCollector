@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MHW Hunter Book</string>
+    <string name="app_name">Hunter Book</string>
 
     <!-- Sign up bold -->
     <string name="no_account">Don\'t have an account? <b>Sign up</b></string>

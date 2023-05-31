@@ -172,7 +172,6 @@
                 android:id="@+id/stats_weapon"
                 layout="@layout/stats_weapon" />
 
-
             <!-- Create -->
             <Button
                 android:id="@+id/createSet"

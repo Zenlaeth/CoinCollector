@@ -23,7 +23,7 @@ class HomeFragment(private val context: HomeActivity) : Fragment() {
         val view =  inflater?.inflate(R.layout.fragment_home, container, false)
 
         // charger api
-        val hRecyclerView = view.findViewById<RecyclerView>(R.id.horizontal_recycler_view)
+//        val hRecyclerView = view.findViewById<RecyclerView>(R.id.horizontal_recycler_view)
         val vRecyclerView = view.findViewById<RecyclerView>(R.id.vertical_recycler_view)
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
         val call = serviceGenerator.getMonsters()
@@ -32,9 +32,9 @@ class HomeFragment(private val context: HomeActivity) : Fragment() {
             override fun onResponse(call: Call<MutableList<MonsterBean>>, response: Response<MutableList<MonsterBean>>) {
                 if(response.isSuccessful){
                     val sortBody = response.body()?.sortedBy { it.name }
-                    hRecyclerView.apply {
-                        hRecyclerView.adapter = MonsterAdapter(context as HomeActivity, sortBody!!, R.layout.item_horizontal)
-                    }
+//                    hRecyclerView.apply {
+//                        hRecyclerView.adapter = MonsterAdapter(context as HomeActivity, sortBody!!, R.layout.item_horizontal)
+//                    }
                     vRecyclerView.apply {
                         vRecyclerView.adapter = MonsterAdapter(context as HomeActivity, sortBody!!, R.layout.item_vertical)
                     }

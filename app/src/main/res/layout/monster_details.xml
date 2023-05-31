@@ -174,8 +174,34 @@
                     style="@style/DefaultTextStyle"
                     />
 
+<!--                <Button-->
+<!--                    android:id="@+id/list_sets"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="72dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:text="View all sets" />-->
+
+                <TextView
+                    android:id="@+id/detail_sets_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sets created by players"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/TitleTextStyle"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_sets"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
                 <Button
-                    android:id="@+id/addBCart"
+                    android:id="@+id/add_new_set"
                     android:layout_width="match_parent"
                     android:layout_height="72dp"
                     android:layout_marginTop="20dp"
