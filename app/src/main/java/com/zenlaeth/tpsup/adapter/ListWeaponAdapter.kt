@@ -27,20 +27,20 @@ class ListWeaponAdapter(private var mListener: onItemClickListener): RecyclerVie
 
     )
     val images = arrayOf(
-        R.drawable.ic_profile,
-        R.drawable.ic_order,
-        R.drawable.ic_address,
-        R.drawable.ic_payment,
-        R.drawable.ic_payment,
-        R.drawable.ic_profile,
-        R.drawable.ic_order,
-        R.drawable.ic_address,
-        R.drawable.ic_payment,
-        R.drawable.ic_payment,
-        R.drawable.ic_profile,
-        R.drawable.ic_order,
-        R.drawable.ic_address,
-        R.drawable.ic_payment
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman,
+        R.drawable.ic_handyman
     )
 
     /*    private lateinit var mListener : onItemClickListener*/

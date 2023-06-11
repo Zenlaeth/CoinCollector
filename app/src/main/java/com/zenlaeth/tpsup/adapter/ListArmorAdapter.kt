@@ -16,7 +16,7 @@ class ListArmorsAdapter(private var mListener: onItemClickListener): RecyclerVie
         "Waist",
         "Legs"
     )
-    val images = arrayOf(R.drawable.ic_profile, R.drawable.ic_order, R.drawable.ic_address, R.drawable.ic_payment, R.drawable.ic_payment)
+    val images = arrayOf(R.drawable.ic_curtain, R.drawable.ic_curtain, R.drawable.ic_curtain, R.drawable.ic_curtain, R.drawable.ic_curtain)
 
     /*    private lateinit var mListener : onItemClickListener*/
 
