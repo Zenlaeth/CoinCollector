@@ -3,7 +3,7 @@
     <item
         android:id="@+id/monsters_page"
         android:title=""
-        android:icon="@drawable/ic_egg"/>
+        android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/armors_page"
         android:title=""

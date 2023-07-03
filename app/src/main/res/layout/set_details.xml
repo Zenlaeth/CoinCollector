@@ -6,7 +6,7 @@
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.SetDetailsActivity">
+    tools:context=".activity.ProjectDetailsActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,6 +14,18 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <ImageView
+                    android:id="@+id/detail_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mhw_nergigante" />
+
+            </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,40 +40,64 @@
                     android:visibility="gone"/>
 
                 <TextView
-                    android:id="@+id/detail_name"
+                    android:id="@+id/detail_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/article_name_item"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/TitleTextStyle"
+                    />
+                <TextView
+                    android:id="@+id/detail_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="API"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/DefaultTextStyle"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_location_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
-                <include
-                    android:id="@+id/stats_head"
-                    layout="@layout/stats_armor" />
+                <TextView
+                    android:id="@+id/detail_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="API"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/DefaultTextStyle"
+                    />
 
-                <include
-                    android:id="@+id/stats_chest"
-                    layout="@layout/stats_armor" />
+                <TextView
+                    android:id="@+id/detail_price_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Purchase price"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/TitleTextStyle"
+                    />
 
-                <include
-                    android:id="@+id/stats_gloves"
-                    layout="@layout/stats_armor" />
+                <TextView
+                    android:id="@+id/detail_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="API"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/DefaultTextStyle"
+                    />
 
-                <include
-                    android:id="@+id/stats_waist"
-                    layout="@layout/stats_armor" />
-
-                <include
-                    android:id="@+id/stats_legs"
-                    layout="@layout/stats_armor" />
-
-                <include
-                    android:id="@+id/stats_weapon"
-                    layout="@layout/stats_weapon" />
-
-
+                <Button
+                    android:id="@+id/btn_invest"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Invest" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

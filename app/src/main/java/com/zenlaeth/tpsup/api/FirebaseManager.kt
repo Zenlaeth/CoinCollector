@@ -1,10 +1,7 @@
 package com.zenlaeth.tpsup.api
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
-import com.zenlaeth.tpsup.entity.Set
-import com.zenlaeth.tpsup.entity.User
+import com.zenlaeth.tpsup.entity.Project
 import kotlinx.coroutines.tasks.await
 
 interface FirebaseManager {
@@ -29,91 +26,43 @@ interface FirebaseManager {
             return arrayList
         }
 
-        suspend fun getSetsByMonster(
-            idMonster: Int
-        ): MutableList<Set> {
+        suspend fun getProject(
+            id: String
+        ): Project {
             val db = FirebaseFirestore.getInstance()
-            val arrayList = mutableListOf<Set>()
+            var set = Project()
 
-            db.collection("sets")
+            db.collection("projects")
                 .get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
-                        val set = document.toObject(Set::class.java)
-
-                        if(set.idMonster == idMonster) {
-                            // add set to the list
-                            arrayList.add(set)
+                        if(document["uid"] == id) {
+                            set = document.toObject(Project::class.java)!!
                         }
+                    }
+                }
+                .await()
+
+            return set
+        }
+
+        suspend fun getProjects(): MutableList<Project> {
+            val db = FirebaseFirestore.getInstance()
+            val arrayList = mutableListOf<Project>()
+
+            db.collection("projects")
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        val set = document.toObject(Project::class.java)
+
+                        // add the userName to the list
+                        arrayList.add(set)
                     }
                 }
                 .await()
 
             return arrayList
-        }
-
-        suspend fun getSet(
-            id: String
-        ): Set {
-            val db = FirebaseFirestore.getInstance()
-            var set = Set()
-
-            db.collection("sets")
-                .get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-                        if(document["uid"] == id) {
-                            set = document.toObject(Set::class.java)!!
-                        }
-                    }
-                }
-                .await()
-
-//            db.collection("sets")
-//                .document(id.toString())
-//                .get()
-//                .addOnSuccessListener { document ->
-//                    set = document.toObject(Set::class.java)!!
-//                }
-//                .await()
-
-            return set
-        }
-
-//        suspend fun getCurrentUserData(idUser: String): User {
-//            val db = FirebaseFirestore.getInstance()
-//            var userData = User()
-//
-//            db.collection("users")
-//                .document(idUser)
-//                .get()
-//                .addOnCompleteListener  { task ->
-//                    if (task.isSuccessful) {
-//                        val document = task.result
-//                        if (document?.exists() == true) {
-//                            userData = gotUserResult(
-//                                document.getString("id").toString(),
-//                                document.getString("email").toString(),
-//                                document.getString("username").toString()
-//                            )
-//                        } else {
-//                            Log.d(TAG, "The document doesn't exist.")
-//                        }
-//                    } else {
-//                        task.exception?.message?.let {
-//                            Log.d(TAG, it)
-//                        }
-//                    }
-//                }
-//                .await()
-//
-//            Log.e("huuuuuuuuuh", userData.username)
-//
-//            return userData
-//        }
-
-        private fun gotUserResult(id: String, username: String, email: String): User {
-            return User(id, username, email)
         }
     }
 }

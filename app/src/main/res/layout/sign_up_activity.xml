@@ -18,7 +18,7 @@
             style="@style/TitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hunter Book" />
+            android:text="JedImmo" />
 
         <TextView
             android:id="@+id/continueTvSignUp"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hunter Book</string>
+    <string name="app_name">JedImmo</string>
 
     <!-- Sign up bold -->
     <string name="no_account">Don\'t have an account? <b>Sign up</b></string>
@@ -16,7 +16,7 @@
 
     <!-- Page d'accueil -->
     <string name="home_page_title">Discover</string>
-    <string name="monster_page_list">List of monsters</string>
+    <string name="monster_page_list">List of projects</string>
 
     <!-- Page de Collection -->
     <string name="collection_page_title">My collection</string>

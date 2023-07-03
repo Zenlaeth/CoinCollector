@@ -13,11 +13,11 @@
         <activity
             android:name=".activity.SignInActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activity.SignUpActivity"
@@ -26,67 +26,19 @@
         <activity
             android:name=".activity.HomeActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
-            android:name=".activity.MonsterDetailsActivity"
-            android:label="Monster details"
+            android:name=".activity.ProjectDetailsActivity"
+            android:label="Project details"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".activity.SetDetailsActivity"
-            android:label="Set details"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MonsterDetailsActivity" />
-        </activity>
-        <activity
-            android:name=".activity.ArmorActivity"
-            android:label="Armor"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".activity.ArmorDetailsActivity"
-            android:label="Armor details"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.ArmorActivity" />
-        </activity>
-        <activity
-            android:name=".activity.WeaponActivity"
-            android:label="Weapon"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".activity.WeaponDetailsActivity"
-            android:label="Weapon details"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.WeaponActivity" />
-        </activity>
-        <activity
-            android:name=".activity.CreateSetActivity"
-            android:label="Create a set"
-            android:launchMode="singleTop">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MonsterDetailsActivity" />
         </activity>
     </application>
 </manifest>
