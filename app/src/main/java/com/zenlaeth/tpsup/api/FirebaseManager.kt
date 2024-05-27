@@ -56,7 +56,6 @@ interface FirebaseManager {
                     for (document in documents) {
                         val set = document.toObject(Project::class.java)
 
-                        // add the userName to the list
                         arrayList.add(set)
                     }
                 }

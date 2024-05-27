@@ -31,7 +31,7 @@ class ProjectDetailsActivity: AppCompatActivity(){
                 Picasso.get().load(set.image).into(binding.detailImage)
             }
             binding.detailTitle.text = set.title
-            binding.detailDescription.text = set.description
+            binding.detailDescription.text = set.description.replace("\\n", "\n");
             binding.detailLocation.text = set.location
             binding.detailPrice.text = set.price.toString() + " €"
         }

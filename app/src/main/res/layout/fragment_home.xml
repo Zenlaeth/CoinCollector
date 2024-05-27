@@ -18,6 +18,7 @@
         android:text="@string/monster_page_list"
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginBottom="@dimen/default_margin"
         style="@style/SubtitleTextStyle"/>
 
     <androidx.recyclerview.widget.RecyclerView

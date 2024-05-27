@@ -26,6 +26,7 @@ class ProjectAdapter(
         val setImage = view.findViewById<ImageView>(R.id.image_item)
         val setTitle:TextView? = view.findViewById(R.id.name_item)
         val setDescription:TextView? = view.findViewById(R.id.description_item)
+        val setPrice:TextView? = view.findViewById(R.id.price_item)
 
         companion object {
             val setIdKey = "ID"
@@ -62,6 +63,7 @@ class ProjectAdapter(
                 .into(holder.setImage)
             Picasso.get().load(currentSet.image).into(holder.setImage)
         }
+        holder.setPrice?.text = currentSet.price.toString() + " €"
 //        holder.setDescription?.text = currentSet.description
     }
 

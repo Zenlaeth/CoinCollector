@@ -47,6 +47,50 @@
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
+
+                <TextView
+                    android:id="@+id/detail_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="159000 €"
+                    style="@style/PurpleTextStyle"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_money_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="invested"
+                    style="@style/DefaultTextStyle"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_price_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Purchase price"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/TitleTextStyle"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="API"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/DefaultTextStyle"
+                    />
+
+                <TextView
+                    android:id="@+id/detail_description_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:layout_marginTop="@dimen/default_margin"
+                    style="@style/TitleTextStyle"
+                    />
+
                 <TextView
                     android:id="@+id/detail_description"
                     android:layout_width="wrap_content"
@@ -73,31 +117,12 @@
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/DefaultTextStyle"
                     />
-
-                <TextView
-                    android:id="@+id/detail_price_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Purchase price"
-                    android:layout_marginTop="@dimen/default_margin"
-                    style="@style/TitleTextStyle"
-                    />
-
-                <TextView
-                    android:id="@+id/detail_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="API"
-                    android:layout_marginTop="@dimen/default_margin"
-                    style="@style/DefaultTextStyle"
-                    />
-
                 <Button
-                    android:id="@+id/btn_invest"
+                    android:id="@+id/btn_comments"
                     android:layout_width="match_parent"
                     android:layout_height="72dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Invest" />
+                    android:layout_marginTop="10dp"
+                    android:text="View comments" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,11 +7,11 @@
     <item
         android:id="@+id/armors_page"
         android:title=""
-        android:icon="@drawable/ic_curtain"/>
+        android:icon="@drawable/ic_chat"/>
     <item
         android:id="@+id/weapons_page"
         android:title=""
-        android:icon="@drawable/ic_handyman"/>
+        android:icon="@drawable/ic_profile"/>
     <item
         android:id="@+id/settings_page"
         android:title=""
