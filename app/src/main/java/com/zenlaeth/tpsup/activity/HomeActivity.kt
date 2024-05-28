@@ -6,6 +6,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zenlaeth.tpsup.R
+import com.zenlaeth.tpsup.fragments.AddCoinFragment
+import com.zenlaeth.tpsup.fragments.GraphFragment
 import com.zenlaeth.tpsup.fragments.HomeFragment
 
 class HomeActivity : AppCompatActivity() {
@@ -20,28 +22,26 @@ class HomeActivity : AppCompatActivity() {
         navigationView.setOnNavigationItemSelectedListener {
             when(it.itemId)
             {
-                R.id.monsters_page -> {
+                R.id.home_page -> {
                     loadFragment(HomeFragment(this), R.string.home_page_title)
                     return@setOnNavigationItemSelectedListener true
                 }
-//                R.id.armors_page -> {
-//                    loadFragment(ArmorFragment(this), R.string.home_page_title)
-//                    return@setOnNavigationItemSelectedListener true
-//                }
-//                R.id.weapons_page -> {
-//                    loadFragment(WeaponFragment(this), R.string.home_page_title)
-//                    return@setOnNavigationItemSelectedListener true
-//                }
+                R.id.add_coin_page -> {
+                    loadFragment(AddCoinFragment(this), R.string.home_page_title)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.graph_page -> {
+                    loadFragment(GraphFragment(this), R.string.home_page_title)
+                    return@setOnNavigationItemSelectedListener true
+                }
                 else -> false
             }
         }
     }
 
     private fun loadFragment(fragment: Fragment, string: Int) {
-        // actualiser le titre de la page
         findViewById<TextView>(R.id.page_title).text = resources.getString(string)
 
-        // injecter le fragment dans notre boîte (fragment_container)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
         transaction.addToBackStack(null)

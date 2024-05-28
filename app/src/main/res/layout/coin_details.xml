@@ -6,7 +6,7 @@
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.ProjectDetailsActivity">
+    tools:context=".activity.CoinDetailsActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,11 +19,11 @@
                 android:layout_height="300dp">
 
                 <ImageView
-                    android:id="@+id/detail_image"
+                    android:id="@+id/image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/mhw_nergigante" />
+                    android:src="@drawable/coin" />
 
             </androidx.cardview.widget.CardView>
             <LinearLayout
@@ -34,95 +34,83 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/item_id"
+                    android:id="@+id/year_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"/>
-
-                <TextView
-                    android:id="@+id/detail_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/article_name_item"
+                    android:text="Year"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/detail_money"
+                    android:id="@+id/year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="159000 €"
-                    style="@style/PurpleTextStyle"
-                    />
-
-                <TextView
-                    android:id="@+id/detail_money_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="invested"
+                    android:text="..."
+                    android:layout_marginTop="@dimen/default_margin"
                     style="@style/DefaultTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/detail_price_label"
+                    android:id="@+id/rarity_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Purchase price"
+                    android:text="Rarity"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/detail_price"
+                    android:id="@+id/rarity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="API"
+                    android:text="..."
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/DefaultTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/detail_description_label"
+                    android:id="@+id/quantity_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description"
+                    android:text="Quantity"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/detail_description"
+                    android:id="@+id/quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="API"
+                    android:text="..."
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/DefaultTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/detail_location_label"
+                    android:id="@+id/value_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Location"
+                    android:text="Value"
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/TitleTextStyle"
                     />
 
                 <TextView
-                    android:id="@+id/detail_location"
+                    android:id="@+id/value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="API"
+                    android:text="..."
                     android:layout_marginTop="@dimen/default_margin"
                     style="@style/DefaultTextStyle"
                     />
-                <Button
-                    android:id="@+id/btn_comments"
-                    android:layout_width="match_parent"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="10dp"
-                    android:text="View comments" />
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn_submit"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="72dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="Submit" />-->
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
